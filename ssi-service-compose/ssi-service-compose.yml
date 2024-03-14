@@ -3,7 +3,8 @@ version: "3.98"
 services:
   web:
     container_name: web
-    image: ghcr.io/tbd54566975/ssi-service:main
+    #image: ghcr.io/tbd54566975/ssi-service:main
+    image: ghcr.io/yuyaogawa/ssi-service:feat-ability-to-addType
     build:
       context: ../
       dockerfile: build/Dockerfile
@@ -30,7 +31,9 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     # This allows for data to not be persisted on new runs
-    command: [sh, -c, "rm -f /data/dump.rdb && redis-server --save ''"]
+    #command: [sh, -c, "rm -f /data/dump.rdb && redis-server --save ''"]
+    volumes:
+      - "/data/redis:/data"
     networks:
       - ssi_network
   redis-commander:
