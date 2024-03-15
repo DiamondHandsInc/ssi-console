@@ -4,7 +4,7 @@ services:
   web:
     container_name: web
     #image: ghcr.io/tbd54566975/ssi-service:main
-    image: ghcr.io/DiamondHandsInc/ssi-service:feat-ability-to-addType
+    image: ghcr.io/diamondhandsinc/ssi-service:feat-ability-to-addType
     build:
       context: ../
       dockerfile: build/Dockerfile
